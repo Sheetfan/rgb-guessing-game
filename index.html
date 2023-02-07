@@ -2,19 +2,24 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
-        <title>Document</title>
+        <title>RGB guessing game</title>
     </head>
     <body>
-        <div>
+        <div id = "title">
             RGB guessing game
+            <br>
+            rgb(0,0,0)
         </div>
-        <div>
-            <span>Easy</span> <span>Hard</span>
+        <div id = "difficulty">
+            <div class = "difficulty-box">New colours?</div>
+            <div class = "difficulty-box" id = "selected">Easy</div> 
+            <div class = "difficulty-box">Hard</div>
         </div>
-        <div>
-            <div class = "colored-blocks"></div>
-            <div class = "colored-blocks"></div>
-            <div class = "colored-blocks"></div>
+        <div id = "coloured-box">
+            <div class = "coloured-blocks"></div>
+            <div class = "coloured-blocks"></div>
+            <div class = "coloured-blocks"></div>
+
         </div>
         <script src = "rgb guessing game.js"></script>
     </body>
