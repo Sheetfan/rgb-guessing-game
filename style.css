@@ -10,7 +10,6 @@ body{
     text-align: center;
     color:rgb(253, 253, 253); 
     font-weight: 700;
-    /* background: rgb(87, 87, 87); */
     background: rgb(38, 181, 195);
     padding: 30px 0px;
     font-size: 2em;
@@ -23,7 +22,12 @@ body{
     grid-template-columns: 50% auto auto;
     margin-bottom: 20px;
     text-align: center;
-    /* justify-content:space-around; */
+}
+
+#selected{
+    background: rgb(247, 247, 247);
+    color: rgb(38, 181, 195);;
+
 }
 
 .difficulty-box {
@@ -35,8 +39,6 @@ body{
 }
 
 #coloured-box{
-    background: rgb(69, 69, 69);
-    /* grid-template-columns: 100px 100px 100px; */
     max-width: 600px;
     margin: 0 auto;
 }
@@ -44,13 +46,8 @@ body{
 .coloured-blocks{
     background: rgb(247, 247, 247);
     float: left;
-    width: 30%;
+    width: 32%;
     padding-bottom: 32%;
     margin: 0.66%;
     border-radius: 20px;
-}
-#selected{
-    background: rgb(247, 247, 247);
-    color: rgb(38, 181, 195);;
-
 }
