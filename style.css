@@ -26,12 +26,12 @@ body{
 
 #selected{
     background: rgb(247, 247, 247);
-    color: rgb(38, 181, 195);;
-
+    color: rgb(38, 181, 195);
 }
 
 .difficulty-box {
     padding: 10px 0px;
+    border-left: 1px solid black;
 }
 
 .difficulty-box:hover {
