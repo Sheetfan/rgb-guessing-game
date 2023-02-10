@@ -5,12 +5,12 @@ let easybtn = document.querySelectorAll(".difficulty-box")[1];
 let hardbtn = document.querySelectorAll(".difficulty-box")[2];
 let colorBlocks = document.querySelector("#coloured-box");
 
-let difficulty;
-let rightRgb;
-let theRightBlockIndex;
-let loopEnder;
-let guessesLeft;
-let finished;
+let difficulty; //represents the current difficulty
+let rightRgb; //stores the correct RGB value
+let theRightBlockIndex; //stores the index with the correct RGB value
+let loopEnder; //stores the amount of blocks to loop though based on the difficulty 
+let guessesLeft; //stores the amount of guess before a game over
+let finished; //a boolean value to check if the game has ended
 
 init();
 
@@ -42,6 +42,7 @@ function init(){
     }
 
     generateBlocks();
+
     easybtn.addEventListener("click",() =>{
         if(difficulty !== 0){
             for(let i = 3; i < colorBlocks.children.length;i++){
@@ -53,6 +54,7 @@ function init(){
         easybtn.setAttribute("id","selected");
         hardbtn.removeAttribute("id");
     });
+
     hardbtn.addEventListener("click",() => {
         if(difficulty !== 1){
             for(let i = 3; i < colorBlocks.children.length;i++){
