@@ -59,7 +59,6 @@ function init(){
         if(difficulty !== 1){
             for(let i = 3; i < colorBlocks.children.length;i++){
                 colorBlocks.children[i].style.visibility = "visible";
-                console.log("hi");
             }
         }
         difficulty = 1;
