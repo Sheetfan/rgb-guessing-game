@@ -23,22 +23,22 @@ function init(){
         rgbValue.innerHTML = `rgb(${rightRgb[0]},${rightRgb[1]},${rightRgb[2]})`;
         theRightBlockIndex = Math.floor(Math.random() * (loopEnder));
         finished = false;
+
         for(let i = 0; i < loopEnder; i++){
+            colorBlocks.children[i].classList.remove("remove-block");
             if(i === theRightBlockIndex){
                 colorBlocks.children[i].style.background = `rgb(${rightRgb[0]},${rightRgb[1]},${rightRgb[2]})`;
-                colorBlocks.children[i].style.visibility = "visible";
             }
             else{
                 let wrongRgb = randomRgb();
                 colorBlocks.children[i].style.background = `rgb(${wrongRgb[0]},${wrongRgb[1]},${wrongRgb[2]})`;
-                colorBlocks.children[i].style.visibility = "visible";
             }
         }
         
     };
 
     for(let i = 3; i < colorBlocks.children.length;i++){
-        colorBlocks.children[i].style.visibility = "hidden";
+        colorBlocks.children[i].classList.add("hide-block");
     }
 
     generateBlocks();
@@ -46,7 +46,7 @@ function init(){
     easybtn.addEventListener("click",() =>{
         if(difficulty !== 0){
             for(let i = 3; i < colorBlocks.children.length;i++){
-                colorBlocks.children[i].style.visibility = "hidden";
+                colorBlocks.children[i].classList.add("hide-block");
             }
         }
         difficulty = 0;
@@ -58,7 +58,7 @@ function init(){
     hardbtn.addEventListener("click",() => {
         if(difficulty !== 1){
             for(let i = 3; i < colorBlocks.children.length;i++){
-                colorBlocks.children[i].style.visibility = "visible";
+                colorBlocks.children[i].classList.remove("hide-block");
             }
         }
         difficulty = 1;
@@ -73,27 +73,29 @@ function init(){
 
     colorBlocks.addEventListener("click",(e) => {
         if(finished !== true){
-            guessesLeft--;
-            if(guessesLeft === 0){
-                rgbValue.innerHTML = "YOU DID NOT GUESS THE COLOUR";
-                finished = true;
-            }
-            if(e.target.style.background === `rgb(${rightRgb[0]}, ${rightRgb[1]}, ${rightRgb[2]})`){
-                for(let i = 0; i < loopEnder; i++){
-                    if(theRightBlockIndex === i){
-                        continue;
-                    }
-                    colorBlocks.children[i].style.visibility = "hidden";
+            if(!e.target.classList.contains("remove-block")){
+                guessesLeft--;
+                if(guessesLeft === 0){
+                    rgbValue.innerHTML = "YOU DID NOT GUESS THE COLOUR";
+                    finished = true;
                 }
-                rgbValue.innerHTML = "YOU GUESSED THE RIGHT COLOUR";
-                finished = true;
+
+                if(e.target.style.background === `rgb(${rightRgb[0]}, ${rightRgb[1]}, ${rightRgb[2]})`){
+                    for(let i = 0; i < loopEnder; i++){
+                        if(theRightBlockIndex === i){
+                            continue;
+                        }
+                        colorBlocks.children[i].classList.add("remove-block");
+                    }
+                    rgbValue.innerHTML = "YOU GUESSED THE RIGHT COLOUR";
+                    finished = true;
+                }
+                else{
+                    e.target.classList.add("remove-block");                    
+                }
             }
-            else{
-                e.target.style.visibility = "hidden";
-                
-            }
-        }
-        
+            
+        } 
     });
 }
 

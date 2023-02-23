@@ -12,7 +12,7 @@ body{
     font-weight: 700;
     background: rgb(38, 181, 195);
     padding: 30px 0px;
-    font-size: 2em;
+    font-size: 2rem;
 }
 
 #difficulty{
@@ -50,4 +50,13 @@ body{
     padding-bottom: 32%;
     margin: 0.66%;
     border-radius: 20px;
+}
+
+/* for javascript */
+.remove-block{
+    transition: background-color 1s linear;
+    background-color:rgba(0, 0, 0, 0) !important; 
+}
+.hide-block{
+    visibility: hidden;
 }
